@@ -1,9 +1,17 @@
 Rails.application.routes.draw do
+  get 'mark/edit'
+
+  get 'mark/index'
+
+  get 'mark/new'
+
+  get 'mark/show'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'mark#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
