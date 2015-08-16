@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>AdminLTE 2 | Dashboard</title>
+  <title>SAU MANAGEMENT | <%= yield(:page_header) %></title>
   <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
   <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css" />
@@ -16,7 +16,7 @@
   <%= csrf_meta_tags %>
 </head>
 
-<body class="skin-blue sidebar-mini fixed <%= params[:controller].parameterize %> <%= action_name %>">
+<body class="skin-blue sidebar-mini  <%= params[:controller].parameterize %> <%= action_name %>">
   <div class="wrapper">
 
     <%= render partial: 'layouts/admin_lte_2_header' %>
@@ -28,8 +28,8 @@
       <!-- Content Header (Page header) -->
       <section class="content-header">
         <h1>
-          Page Header
-          <small>Optional description</small>
+          <%= yield(:page_header) %>
+          <small><%= yield(:page_header_description) %></small>
         </h1>
         <ol class="breadcrumb">
           <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
@@ -39,21 +39,16 @@
 
       <!-- Main content -->
       <section class="content">
-        <% if notice %>
-          <div class="alert alert-success alert-dismissable">
-            <i class="fa fa-check"></i>
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-            <b><%= notice %></b>
-          </div>
-        <% end %>
-
-        <% if alert %>
-          <div class="alert alert-danger alert-dismissable">
-            <i class="fa fa-ban"></i>
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-            <b><%= alert %></b>
-          </div>
-        <% end %>
+        <% flash.each do |message_type, message|  %>
+            <div class="alert alert-<%= message_type %> alert-dismissable">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+              <h4>
+                <i class="icon fa fa-check"></i>
+                <%= message  %>
+              </h4>
+            </div>
+        <%  end %>
+        
         <%= yield %>
       </section><!-- /.content -->
     </div><!-- /.content-wrapper -->

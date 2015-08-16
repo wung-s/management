@@ -1,0 +1,28 @@
+<% provide(:page_title, "Student List") %>
+<% provide(:page_header, "Student List")  %>
+<% provide(:page_header_description, "Registered Students")  %>
+
+<div class="box">
+    <div class="box-header">
+      <h3 class="box-title">List of Students</h3>
+    </div><!-- /.box-header -->
+    <div class="box-body">
+         
+    <table id="students-table" class="table datatable" data-source="<%= students_path(format: :json) %>">
+      <thead>
+        <tr>
+          <th>Reg No</th>
+          <th>Name</th>
+          <th>Email Address</th>
+          <th>Action</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+
+
+      
+    </div><!-- /.box-body -->
+ </div><!-- /.box -->  

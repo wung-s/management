@@ -1,9 +1,19 @@
 Rails.application.routes.draw do
+  
+=begin
+get 'students' => 'students#index'
+  get 'create_student' => 'students#create'
+  get 'new_student' => 'students#new'
+  get 'show_student' => 'students#show'
+  get 'edit_student' => 'students#edit'
+=end
+
 
   post 'import_mark' => 'marks#import'
   get 'search_student' => 'marks#search'
   get 'marks/search'
 
+  resources :students
   resources :marks
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -51,7 +51,7 @@ class MarksController < ApplicationController
     else
         flash.now[:error] = "Please ensure you select the following: " + flash_msg_elements.join(", ")
     end
-    
+    # alert = 'warning testted'    
   	# debugger
   	#redirect_to 'marks/index'
   	render 'index'
