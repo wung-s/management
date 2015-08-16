@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-  get 'marks/import'
-
+  post 'import_mark' => 'marks#import'
+  get 'search_student' => 'marks#search'
   get 'marks/search'
 
   resources :marks
