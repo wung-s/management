@@ -1,5 +1,6 @@
 $(document).on('page:change', function() {
-  //console.log('page changed on page js file'); 
+  //destroy any datatable created earlier prior to creating a new one
+  $('#students-table').dataTable().fnDestroy();
   $('#students-table').dataTable({
     "processing": true,
     "serverSide": true,
