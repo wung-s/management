@@ -4,6 +4,17 @@
 
 class StudentDatatable < AjaxDatatablesRails::Base
   def_delegators :@view, :link_to, :student_path
+  
+  def sortable_columns
+    # Declare strings in this format: ModelName.column_name
+    @sortable_columns ||= ['student.regno']
+  end
+
+  def searchable_columns
+    # Declare strings in this format: ModelName.column_name
+    @searchable_columns ||= ['student.regno','student.first_name','student.email']
+  end
+
   def view_columns
     @view_columns ||= ['student.regno','student.first_name','student.email']
   end

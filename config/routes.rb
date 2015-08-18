@@ -11,8 +11,7 @@ get 'students' => 'students#index'
 
   post 'import_mark' => 'marks#import'
   get 'search_student' => 'marks#search'
-  get 'marks/search'
-
+  
   resources :students
   resources :marks
   # The priority is based upon order of creation: first created -> highest priority.

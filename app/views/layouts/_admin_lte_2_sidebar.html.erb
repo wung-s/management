@@ -7,7 +7,7 @@
     <ul class="sidebar-menu">
       <li class="header">NAVIGATION</li>
         <!-- Optionally, you can add icons to the links -->
-      <li><a href="#"><i class='fa fa-link'></i> <span>Registration</span></a></li>
+      <li><a href="<%= new_student_path %>"><i class='fa fa-link'></i> <span>Student Registration</span></a></li>
       <li class = "<%= is_active(students_path) %>"><a href="<%= students_path %>"><i class='fa fa-link'></i> <span>Students</span></a></li>
       <li class = "<%= is_active(marks_path) %>"><a href="<%= marks_path %>"><i class='fa fa-link'></i> <span>Import</span></a></li>
       <li class="treeview">

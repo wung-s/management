@@ -7,18 +7,18 @@ class StudentsController < ApplicationController
   end
 
   def create
-=begin
+# begin
     @student = Student.new(student_params)
     
     if @student.save
-      @students = Student.paginate(page: params[:page], per_page: 4)
+      # @students = Student.paginate(page: params[:page], per_page: 4)
       flash.now[:success] = "Registration successful"
       render action: 'index'
     else 
       flash.now[:danger] = "Registration unsuccessful"
       render 'new'
     end
-=end
+
 
   end
 

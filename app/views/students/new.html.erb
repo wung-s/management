@@ -1,2 +1,13 @@
-<h1>Students#new</h1>
-<p>Find me in app/views/students/new.html.erb</p>
+<% provide(:page_title, "Registration") %>
+<% provide(:page_header, "Student Registration")  %>
+<% provide(:page_header_description, "New Student")  %>
+
+
+<div class="box box-success">
+    <div class="box-header with-border">
+      <h3 class="box-title">General Information</h3>
+    </div><!-- /.box-header -->
+    <%= render 'shared/student_form'  %>
+      
+</div><!-- /.box -->  
+  <!-- general form elements disabled -->
