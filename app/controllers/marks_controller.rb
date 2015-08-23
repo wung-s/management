@@ -57,5 +57,30 @@ class MarksController < ApplicationController
   	render 'index'
   end
 
+  def generate_marksheet
+
+  end
+
+  def genpdf
+    # @user = User.first
+    # debugger
+    respond_to do |format|
+      format.html
+      # debugger
+      format.pdf do 
+        # pdf = UserPdf.new(@user)
+        pdf = MarksheetPdf.new
+        # pdf.text "hello world"
+        
+        send_data pdf.render, filename: "test_file",
+                            type: "application/pdf",
+                            disposition: "inline"
+        
+        #  send_data pdf.render
+      end
+
+    end
+  end
+
 
 end

@@ -1,0 +1,29 @@
+
+<div class="box box-success">
+    <div class="box-header with-border">
+      <h3 class="box-title">Search</h3>
+    </div><!-- /.box-header -->
+    <!-- form start -->
+<!-- <form class="form-horizontal"> -->
+	
+
+	<%= form_tag({controller: "marks", action: "search"}, method: 'get', class: "form-horizontal") do %>
+	<div class="box-body">
+		<div class="form-group">
+		    <label for="regno" class="col-sm-2 control-label">Department</label>
+		    <div class="col-sm-10">
+		  		
+		   		<%= collection_select(:course, :id, Department.all, :id, :name, options = {prompt: "Select Department"}, {class: "form-control col-sm-4"})  %> 
+		    </div>
+		</div>
+		    
+	</div><!-- /.box-body -->
+	<div class="box-footer">
+	    <button type="submit" class="btn btn-default pull-right">Cancel</button>
+	    <%= submit_tag "Generate Result", {class: "btn btn-success pull-right"} %>
+	</div><!-- /.box-footer -->
+	<% end %>
+	   <!-- </form> -->
+</div><!-- /.box -->  
+
+<%= link_to "Download PDF", genpdf_path(@user, format: "pdf"), class: "btn btn-success", target: "_blank"%>

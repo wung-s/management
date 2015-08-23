@@ -10,6 +10,8 @@ get 'students' => 'students#index'
 
 
   post 'import_mark' => 'marks#import'
+  get 'generate_marksheet' => 'marks#generate_marksheet'
+  get 'genpdf' => 'marks#genpdf'
   get 'search_student' => 'marks#search'
   
   resources :students
