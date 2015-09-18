@@ -120,7 +120,7 @@ class MarksheetPdf < Prawn::Document
 		@date = d.strftime("%B") + ", " + t.year.to_s
 		
 		data = [["Date: "+ @date, ""], 
-				["Place: Pune",{content: "<font name='Helvetica-Bold'>Controller Of Examination, SAU</font>", align: :right}]]
+				["Place: Pune",{content: "<font name='Helvetica-Bold'>Controller Of Examination, DEMO</font>", align: :right}]]
 		table data, {position: :left, column_widths: [123,400],cell_style: {border_width: 0, font_style: :bold, inline_format: true}} do 
 
 			end
