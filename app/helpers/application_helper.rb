@@ -6,8 +6,7 @@ module ApplicationHelper
 	end
 
 	def alert_type(message_type)
-		# String alert_class = ''
-		# debugger
+		
 		case message_type
 		when 'notice'
 			alert_class = 'success'

@@ -1,42 +1,5 @@
 <div class="box box-success">
     <div class="box-header with-border">
-      <h3 class="box-title">Search</h3>
-    </div><!-- /.box-header -->
-    <!-- form start -->
-<!-- <form class="form-horizontal"> -->
-	
-
-	<%= form_tag({controller: "marks", action: "search"}, method: 'get', class: "form-horizontal") do %>
-	<div class="box-body">
-		<div class="form-group">
-		    <label for="regno" class="col-sm-2 control-label">Student Reg No</label>
-		    <div class="col-sm-10">
-		  		<%= text_field_tag :regno, nil, { class: "form-control",placeholder: "reg no"}  %>
-		   		
-		    </div>
-		</div>
-		    
-	</div><!-- /.box-body -->
-	<div class="box-footer">
-	    <button type="submit" class="btn btn-default pull-right">Cancel</button>
-	    <%= submit_tag "Search", {class: "btn btn-success pull-right"} %>
-	</div><!-- /.box-footer -->
-	<% end %>
-	   <!-- </form> -->
-</div><!-- /.box -->  
-
-<% unless @students.nil?  %>
-	<ul class="list-group" >
-		<% @students.each do |student| %>
-			<li class="list-group-item"> <%= link_to student.regno.to_s + " " + student.first_name + " " + student.last_name, "#" %></li> 
-		<% end %>
-	</ul>
-
-<% end  %>
-
-
-<div class="box box-success">
-    <div class="box-header with-border">
     	<i class="fa fa-bullhorn"></i>
       	<h3 class="box-title">IMPORTANT</h3>
     </div><!-- /.box-header -->
@@ -77,8 +40,5 @@
 
 		<% end  %>
 
-
-
-      
     </div><!-- /.box-body -->
 </div><!-- /.box -->
