@@ -6,6 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+=begin
 
 30.times do |i| 
 	# x = x + 1
@@ -34,3 +35,4 @@ State.create(name: 'Tripura');
 
 User.destroy_all
 User.create(email: 'admin@demo.com', password: '@password1234')
+=end
