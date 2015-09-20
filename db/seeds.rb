@@ -32,3 +32,4 @@ State.create(name: 'J & K');
 State.create(name: 'Tripura');
 
 =end
+User.create(email: 'admin@demo.com', password: 'password')
