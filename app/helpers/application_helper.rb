@@ -4,4 +4,20 @@ module ApplicationHelper
 		current_page?(path) ? "active": ""
 	
 	end
+
+	def alert_type(message_type)
+		# String alert_class = ''
+		# debugger
+		case message_type
+		when 'notice'
+			alert_class = 'success'
+		when 'alert'
+			alert_class = 'danger'
+		else
+			alert_class = 'warning'
+		end
+		
+		alert_class
+	
+	end
 end
