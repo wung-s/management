@@ -27,7 +27,7 @@ class StudentsController < ApplicationController
   end
 
   def show
-      @student = Student.select("students.* , departments.name as dept_name").joins(:department).find(1)
+    @student = Student.select("students.* , departments.name as dept_name").joins(:department).find(params[:id])
   end
 
   def edit
