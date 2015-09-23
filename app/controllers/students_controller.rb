@@ -9,7 +9,7 @@ class StudentsController < ApplicationController
   def create
 # begin
     @student = Student.new(student_params)
-    
+    @student.regno = @student.generate_regno(params[:student][:department_id])
     if @student.save
       # @students = Student.paginate(page: params[:page], per_page: 4)
       flash.now[:success] = "Registration successful"
@@ -36,7 +36,7 @@ class StudentsController < ApplicationController
 
   private
     def student_params
-      params.require(:student).permit(:first_name, :middle_name, :last_name, :address, :email, :state, :pincode, :emergency_no, :department_id)
+      params.require(:student).permit(:first_name, :middle_name, :last_name, :address, :email, :state_id, :pincode, :emergency_no, :department_id)
     end
 
 end
