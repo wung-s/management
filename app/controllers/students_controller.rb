@@ -8,6 +8,7 @@ class StudentsController < ApplicationController
 
   def create
 # begin
+    # debugger
     @student = Student.new(student_params)
     @student.regno = @student.generate_regno(params[:student][:department_id])
     if @student.save
@@ -36,7 +37,8 @@ class StudentsController < ApplicationController
 
   private
     def student_params
-      params.require(:student).permit(:first_name, :middle_name, :last_name, :address, :email, :state_id, :pincode, :emergency_no, :department_id)
+      params.require(:student).permit(:first_name, :middle_name, :last_name, :address, :email, :state_id, :pincode, :emergency_no, :department_id, :country_id)
+      
     end
 
 end

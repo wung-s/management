@@ -19,3 +19,14 @@
 @import "AdminLTE/AdminLTE";
 @import "AdminLTE/skins/skin-blue";
 
+
+
+.field_with_error .form-control {
+	display: inline; 
+	border-color: #dd4b39;
+ 	box-shadow: none;
+}
+
+.field_with_error label {
+	color: #dd4b39; 
+} 

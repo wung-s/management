@@ -36,3 +36,12 @@ State.create(name: 'Tripura');
 User.destroy_all
 User.create(email: 'admin@demo.com', password: '@password1234')
 =end
+Country.create(name: 'India');
+Country.create(name: 'Sri Lanka');
+Country.create(name: 'Bangadesh');
+Country.create(name: 'Thailand');
+Country.create(name: 'Pakistan');
+Country.create(name: 'Nepal');
+Country.create(name: 'Myanmar');
+Country.create(name: 'Indonesia');
+Country.create(name: 'Phillipines');
