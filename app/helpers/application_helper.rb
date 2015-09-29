@@ -15,9 +15,11 @@ module ApplicationHelper
 		when 'alert'
 			alert_class = 'danger'
 		when 'danger'
-			alert_class = 'danger'	
+			alert_class = 'danger'
+		when 'warning'	
+			alert_class = 'warning'
 		else
-			alert_class = 'info'
+			alert_class = alert_class
 		end
 		
 		alert_class

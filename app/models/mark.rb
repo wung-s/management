@@ -31,7 +31,7 @@ class Mark < ActiveRecord::Base
 				row = Hash[[header, excel_file.row(key).slice(0,3)].transpose]
 			
 				if row[header[1]].is_a? Numeric and row[header[2]].is_a? Numeric then
-					student = Student.find_by! regno: row[header[0]]
+					student = Student.find_by! regno: row[header[0]].to_i
 					course = Course.find(course_id)
 					marks = Mark.where(course_id: course_id, student_id: student.id).take || new
 					marks.internal = row[header[1]]

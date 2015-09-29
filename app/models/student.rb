@@ -19,10 +19,10 @@ class Student < ActiveRecord::Base
 							 numericality:  {only_integer: true, greater_than_or_equal_to: 0}
 	
 	def generate_regno(department_id) 
-		#the generated length would be 3+4+5 = 12 characters
+		#the generated length would be 1+3+4+5 = 13 characters
 		student_count = Student.where(department_id: department_id).count 
-		student_count = 1 if student_count == 0 
- 		regno = "%03d" % department_id + "%04d" % Time.now.year + "%05d" % student_count 
+		student_count += 1 
+ 		regno = "1" + "%03d" % department_id + "%04d" % Time.now.year + "%05d" % student_count 
   	end
 
 end
