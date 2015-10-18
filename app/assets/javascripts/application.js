@@ -15,5 +15,6 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require dataTables/jquery.dataTables
+
 //= require app
 //= require_tree .

@@ -30,6 +30,7 @@ gem 'ajax-datatables-rails', github: 'antillas21/ajax-datatables-rails', branch:
 gem 'adminlte2-rails'
 gem 'devise',    			'3.5.1'
 gem 'pundit'
+
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 

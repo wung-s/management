@@ -3,9 +3,8 @@ class Mark < ActiveRecord::Base
 	belongs_to :course
 
 	validates :student_id, :internal, :external, presence: true
-	validates :internal, numericality: {only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 20} 
+ 	validates :internal, numericality: {only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 20}
 	validates :external, numericality: {only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 60} 
-
 
 	def self.import(file, course_id, department_id)
 		# xlsx =  Roo::Spreadsheet.open(file.path)

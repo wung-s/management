@@ -25,7 +25,7 @@ class StudentsController < ApplicationController
 
   def new
     @student = Student.new
-  end
+ end
 
   def show
     @student = Student.select("students.* , departments.name as dept_name").joins(:department).find(params[:id])
@@ -35,10 +35,10 @@ class StudentsController < ApplicationController
      @student = Student.find(params[:id])
   end
 
+  
   private
     def student_params
       params.require(:student).permit(:first_name, :middle_name, :last_name, :address, :email, :state_id, :pincode, :emergency_no, :department_id, :country_id)
-      
     end
 
 end
