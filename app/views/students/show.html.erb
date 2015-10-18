@@ -1,8 +1,5 @@
-<% provide(:page_title, "Student Details") %>
-<% provide(:page_header, @student.first_name + " " + @student.last_name)  %>
-<% provide(:page_header_description, "Reg No: " + @student.regno)  %>
+<%= render partial: 'shared/page_info', locals: {page_title: "Student Details", page_header: @student.first_name + " " + @student.last_name, page_header_description: @student.regno} %>
 
-<%= @student.dept_name  %>
 <div class="row">
 	<div class="col-md-12">
 	  <!-- Custom Tabs -->
