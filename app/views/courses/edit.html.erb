@@ -1,0 +1,13 @@
+<% provide(:page_title, "Course") %>
+<% provide(:page_header, "Edit Course")  %>
+<% provide(:page_header_description, @course.name)  %>
+
+
+<div class="box box-success">
+    <div class="box-header with-border">
+      <h3 class="box-title">Course Association</h3>
+    </div><!-- /.box-header -->
+    <%= render partial: 'shared/course_edit_form', locals: {course: @course}  %>
+      
+</div><!-- /.box -->  
+  <!-- general form elements disabled -->
