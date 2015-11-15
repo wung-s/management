@@ -1,41 +1,40 @@
-<% # debugger  %>
-<%= form_for course, html: {class: "form-horizontal"} do |f| %>
+<%= form_for @course, html: {class: "form-horizontal"} do |f| %>
 	<div class="box-body">
 		<div class="form-group pull-left">
 			<%= f.label(:code, class: "col-sm-2 control-label required")  %>
  			<div class="col-sm-4">
 		  		<%= f.text_field :code, class: "form-control",placeholder: "code", required: "true", disabled: "true"  %>
 	 		</div>
-			
+
 			<%= f.label(:name, class: "col-sm-2 control-label required")  %>
  			<div class="col-sm-4">
-		  		<%= f.text_field :name, class: "form-control",placeholder: "course name", required: "true"  %>
+		  		<%= f.text_field :name, class: "form-control",placeholder: "course name", required: "true", disabled: "true"  %>
 	 		</div>
-			    	
+
 		</div>
-		
-		<%  if course.course_associations.empty? then %>
- 			<h4>This course does not have a department</h4>	
+
+		<%  if @course.course_associations.empty? then %>
+ 			<h4>This course does not have a department</h4>
 		<% else %>
-		
+
 			<table class="table table-striped">
 	            <tr>
 	              <th style="width: 10px">#</th>
 	              <th >Department Name</th>
 	              <th>Semester</th>
 	              <th>Credit Hour</th>
-	              
+
 	            </tr>
-	            
+
 				<%=  f.fields_for :course_associations do |ca| %>
 		 			<tr>
 		 				<td></td>
 						<td><%= ca.object.department.name %>  </td>
-						<td><%= ca.select(:semester, options_for_select(1..6, selected: ca.object.semester), {}, {class: "form-control", required: "true"}   ) %> </td> 
-						<td><%= ca.select(:credit_hour, options_for_select(1..9, selected: ca.object.credit_hour), {}, {class: "form-control", required: "true"}   ) %> </td>
+						<td><%= ca.select(:semester, options_for_select(1..6, selected: ca.object.semester), options = {prompt: "Select Semester"}, {class: "form-control", required: "true"}   ) %> </td>
+						<td><%= ca.select(:credit_hour, options_for_select(1..9, selected: ca.object.credit_hour), options = {prompt: "Select Semester"}, {class: "form-control", required: "true"}   ) %> </td>
  					</tr>
 	 			<% end  %>
-			</table>	
+			</table>
 		<% end  %> <!-- end of unless -->
 	</div><!-- /.box-body -->
 	<div class="box-footer">
@@ -45,3 +44,4 @@
 	    </div>
 	</div><!-- /.box-footer -->
 <% end %>
+

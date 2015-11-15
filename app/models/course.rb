@@ -9,7 +9,12 @@ class Course < ActiveRecord::Base
 
 	accepts_nested_attributes_for :course_associations, reject_if: :reject_course_associations
 
-	def reject_course_associations(attributed)
+
+ 	private
+
+ 	def reject_course_associations(attributed)
 		attributed['semester'].blank? or attributed['credit_hour'].blank? 
  	end
+
+ 	
 end

@@ -1,12 +1,15 @@
-<%= render partial: 'shared/page_info', locals: {page_title: "Course", page_header: "Ecit Course", page_header_description: @course_name} %>
+<%= render partial: 'shared/page_info', locals: {page_title: "Course", page_header: "Edit Course", page_header_description: @course_name} %>
 
 <div class="box box-success">
     <div class="box-header with-border">
       <h3 class="box-title">Course Association</h3>
       <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#new_course_association_modal">Assign Course</button>
+      <% #link_to "Assign Course", new_course_path, remote: true, class: "btn btn-success" %>
     </div><!-- /.box-header -->
-    <%= render partial: 'shared/course_edit_form', locals: {course: @course}  %>
-      
-</div><!-- /.box -->  
 
-<%= render partial: 'shared/course_association_new', locals: {course: @course_association}  %>
+    <div id = 'course_edit_form_wrapper' >
+      <%= render 'course_edit_form'  %>
+    </div>
+</div><!-- /.box -->
+
+<%= render 'course_association_new' %>

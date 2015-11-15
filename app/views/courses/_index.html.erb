@@ -1,0 +1,22 @@
+<% unless @courses.nil?  %>
+	<table class="table table-hover">
+	    <tr>
+	      <th style="width: 10px">#</th>
+	      <th>Code</th>
+	      <th>Course Name</th>
+	      <th>Department</th>
+	      <th style="width: 40px">Action</th>
+	    </tr>
+	 	<% cnt = 0 %>
+		<% @courses.each do |course|  %>
+	 		<tr>
+				<% cnt = cnt.next %>
+				<td><%= cnt %></td>
+				<td><%= course.code %></td>
+				<td><%= course.name %></td>
+				<td><%= course.dept_name  %> </td>
+		  		<td> <%= link_to("Edit", edit_course_path(course), {class: "btn btn-success"}) %>
+	 		</tr>
+	 	<%  end  %>
+ 	</table>
+<% end  %>
