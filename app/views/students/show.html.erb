@@ -1,24 +1,35 @@
-<%= render partial: 'shared/page_info', locals: {page_title: "Student Details", page_header: @student.first_name + " " + @student.last_name, page_header_description: @student.regno} %>
+<%= render partial: 'shared/page_info', locals: {page_title: "Student Details",
+												 page_header: @student.first_name + " " + @student.last_name,
+												 page_header_description: @student.regno} %>
 
 <div class="row">
 	<div class="col-md-12">
 	  <!-- Custom Tabs -->
 		<div class="nav-tabs-custom">
 		    <ul class="nav nav-tabs">
-		      <li class="active"><a href="#tab_1" data-toggle="tab">Personal</a></li>
+		      <li class="active"><a href="#tab_1" data-toggle="tab">General</a></li>
 		      <li><a href="#tab_2" data-toggle="tab">Account</a></li>
 		      <li><a href="#tab_3" data-toggle="tab">Academic</a></li>
 		 	</ul>
 		    <div class="tab-content">
 			    <div class="tab-pane active" id="tab_1">
-			      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus egestas semper eros tempor facilisis.
-			      Morbi vel felis eget sem elementum pellentesque ac id ante. Integer ligula orci, sodales in accumsan
-			      sit amet, vulputate eu diam. Morbi congue ante eu ultrices egestas. Vivamus tincidunt mi ac arcu 
-			      placerat euismod. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
-			      egestas. Praesent maximus volutpat turpis, vel condimentum ligula imperdiet ut. Praesent massa dolor, 
-			      congue eu erat non, tempus vestibulum ipsum. Mauris iaculis a nibh et iaculis. Nam nec urna vitae dui 
-			      porttitor finibus.
+				    <div id = "student_info_wrapper" style = "display: <%= to_show %>">
+				    	<button id = "edit_button" class = "btn btn-success pull-right"> Edit </button>
+
+					      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus egestas semper eros tempor facilisis.
+					      Morbi vel felis eget sem elementum pellentesque ac id ante. Integer ligula orci, sodales in accumsan
+					      sit amet, vulputate eu diam. Morbi congue ante eu ultrices egestas. Vivamus tincidunt mi ac arcu
+					      placerat euismod. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
+					      egestas. Praesent maximus volutpat turpis, vel condimentum ligula imperdiet ut. Praesent massa dolor,
+					      congue eu erat non, tempus vestibulum ipsum. Mauris iaculis a nibh et iaculis. Nam nec urna vitae dui
+					      porttitor finibus.
+
+					</div>
+					<div id = "student_form_wrapper" style = "display: <%= to_show_error %>">
+						<%= render partial: "shared/student_form", locals: {btn_label: 'Update'} %>
+					</div>
 			    </div><!-- /.tab-pane -->
+
 			    <div class="tab-pane" id="tab_2">
 			        The European languages are members of the same family. Their separate existence is a myth.
 			        For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ
@@ -41,3 +52,4 @@
 		</div><!-- nav-tabs-custom -->
 	</div><!-- /.col -->
 </div> <!-- /.row -->
+

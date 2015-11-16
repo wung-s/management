@@ -1,26 +1,25 @@
 <%= render partial: 'shared/page_info', locals: {page_title: "Student List", page_header: "Student List", page_header_description: "Registered Students"} %>
 
-<div class="box">
-    <div class="box-header">
-      <h3 class="box-title">List of Students</h3>
-    </div><!-- /.box-header -->
-    <div class="box-body">
-         
-    <table id="students-table" class="table datatable" data-source="<%= students_path(format: :json) %>">
-      <thead>
-        <tr>
-          <th>Reg No</th>
-          <th>Name</th>
-          <th>Email Address</th>
-          <th>Action</th>
-          
-        </tr>
-      </thead>
-      <tbody>
-      </tbody>
-    </table>
+<div class="row">
+    <div class="col-xs-12">
+      <div class="box">
+        <div class="box-header">
+          <h3 class="box-title"></h3>
+          <div class="box-tools">
+            <%= form_tag({controller: "students", action: "search"}, method: 'get') do %>
+            <div class="input-group" style="width: 150px;">
+            <%= number_field_tag :regno, nil, { class: "form-control input-sm pull-right",placeholder: "reg no"}  %>
+              <div class="input-group-btn">
+              <%= submit_tag "Search", {class: "btn btn-sm btn-default"} %>
+              </div>
+            </div>
+            <% end %>
+          </div>
+        </div><!-- /.box-header -->
+        <div id = "student_list_wrapper" class="box-body table-responsive no-padding">
+          <%=  render 'index' %>
+        </div><!-- /.box-body -->
+      </div><!-- /.box -->
+    </div>
 
-
-      
-    </div><!-- /.box-body -->
- </div><!-- /.box -->  
+</div>

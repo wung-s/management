@@ -4,7 +4,8 @@
     <div class="box-header with-border">
       <h3 class="box-title">General Information</h3>
     </div><!-- /.box-header -->
-    <%= render 'shared/student_form'  %>
-      
-</div><!-- /.box -->  
-  <!-- general form elements disabled -->
+    <div id = "student_from_wrapper">
+    <%= render partial: "shared/student_form", locals: {btn_label: 'Register'} %>
+    </div>
+
+</div><!-- /.box -->

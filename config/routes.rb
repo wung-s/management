@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'generate_marksheet' => 'marks#generate_marksheet'
   get 'genpdf' => 'marks#genpdf'
   get 'search_student' => 'marks#search'
-  
+  get 'students/search'
   resources :students
   resources :marks
 

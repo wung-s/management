@@ -1,21 +1,19 @@
-$(document).on('page:change', function() {
-  //destroy any datatable created earlier prior to creating a new one
-  $('#students-table').dataTable().fnDestroy();
-
-  $('#students-table').dataTable({
-    "processing": true,
-    "serverSide": true,
-    "ajax": $('#students-table').data('source'),
-    "pagingType": "full_numbers",
-    // optional, if you want full pagination controls.
-    // Check dataTables documentation to learn more about
-    // available options.
+$(document).ready(function() {
+  $('#edit_button').click(function() {
+    $('#student_info_wrapper').attr('style', 'display: none');
+    $('#student_form_wrapper').attr('style', 'display: block');
+    //$(this).attr('style', 'display: none');
   });
-  
+
   //always reset the selected option if country is NOT India
-  if($("#student_country_id option:selected" ).text() != 'India') {
-    $("#student_state_id option:first").val(); 
-  }
+  $('#student_country_id').change(function() {
+    alert('changed');
+    if($("#student_country_id option:selected" ).text() != 'India') {
+      $("#student_state_id option:first").val();
+    }
+  });
+
+
 
   $('#new_student').change(function() {
     if($("#student_country_id option:selected" ).text() == 'India') {
@@ -28,9 +26,9 @@ $(document).on('page:change', function() {
         $("#student_state_label").removeClass('required');
 
     }
-      
+
 
   });
 
-  
-}); 
+
+});
