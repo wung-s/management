@@ -31,12 +31,10 @@ gem 'ajax-datatables-rails', github: 'antillas21/ajax-datatables-rails', branch:
 gem 'adminlte2-rails'
 gem 'devise',    			'3.5.1'
 gem 'pundit'
-
+gem 'will_paginate', 		'~> 3.0.6'
+gem 'will_paginate-bootstrap'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

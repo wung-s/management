@@ -3,6 +3,9 @@ class Course < ActiveRecord::Base
 	has_many :departments, through: :course_associations
 	has_many :marks
 
+	#set the no of entries to be retrieved using will_paginate
+	self.per_page = 10
+
 	validates :code, presence: true
 	validates :name, presence: true
 	validates_associated :course_associations
@@ -13,8 +16,8 @@ class Course < ActiveRecord::Base
  	private
 
  	def reject_course_associations(attributed)
-		attributed['semester'].blank? or attributed['credit_hour'].blank? 
+		attributed['semester'].blank? or attributed['credit_hour'].blank?
  	end
 
- 	
+
 end

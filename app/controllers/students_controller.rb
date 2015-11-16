@@ -1,10 +1,9 @@
 class StudentsController < ApplicationController
 
   def index
-    @students = Student.all
+    @students = Student.paginate(page: params[:page])
     respond_to do |format|
           format.html
-          format.json { render json: StudentDatatable.new(view_context) }
     end
   end
 
@@ -17,7 +16,7 @@ class StudentsController < ApplicationController
     @student = Student.new(student_params)
     @student.regno = @student.generate_regno(params[:student][:department_id])
     if @student.save
-      # @students = Student.paginate(page: params[:page], per_page: 4)
+      @students = Student.paginate(page: params[:page])
       flash.now[:success] = "Registration successful"
       render action: 'index'
     else
@@ -56,6 +55,7 @@ class StudentsController < ApplicationController
     @students = Student.joins("LEFT OUTER JOIN departments ON students.department_id = departments.id
                               LEFT OUTER JOIN marks ON students.id = marks.student_id")
                       .where("students.regno like ?", "%#{params[:regno]}%")
+                      .paginate(page: params[:page])
 
    render 'index'
   end

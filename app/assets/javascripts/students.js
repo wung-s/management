@@ -7,7 +7,6 @@ $(document).ready(function() {
 
   //always reset the selected option if country is NOT India
   $('#student_country_id').change(function() {
-    alert('changed');
     if($("#student_country_id option:selected" ).text() != 'India') {
       $("#student_state_id option:first").val();
     }

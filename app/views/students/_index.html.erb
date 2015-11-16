@@ -1,22 +1,19 @@
 <% unless @students.nil?  %>
 	<table class="table table-hover">
 	    <tr>
-	      <th style="width: 10px">#</th>
-	      <th>Reg No</th>
+ 		  <th>Reg No</th>
 	      <th>Name</th>
 	      <th>Email</th>
 	      <th>Action</th>
 	    </tr>
-	 	<% cnt = 0 %>
-		<% @students.each do |student|  %>
+ 		<% @students.each do |student|  %>
 	 		<tr>
-				<% cnt = cnt.next %>
-				<td><%= cnt %></td>
-				<td><%= student.regno %></td>
+ 				<td><%= student.regno %></td>
 				<td><%= student.first_name + ' ' + student.last_name %></td>
 				<td><%= student.email %></td>
  				<td> <%= link_to("View Details", student_path(student), {class: "btn btn-success"}) %> </td>
 	 		</tr>
 	 	<%  end  %>
  	</table>
+ 	<%=  will_paginate @students, renderer: BootstrapPagination::Rails %>
 <% end  %>

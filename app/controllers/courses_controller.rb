@@ -4,11 +4,11 @@ class CoursesController < ApplicationController
 
   def index
 
- end
+  end
 
   def new
     @course = Course.new
- end
+  end
 
   def create
 
@@ -53,6 +53,7 @@ class CoursesController < ApplicationController
                               course_associations.semester as semester,
                               course_associations.credit_hour as credit_hour')
                      .where("courses.code like ?", "%#{params[:code]}%")
+                     .paginate(page: params[:page])
 
     render 'index'
   end
@@ -73,6 +74,7 @@ class CoursesController < ApplicationController
     end
 
     def find_all_course
+
       @courses = Course.joins('LEFT OUTER JOIN course_associations ON course_associations.course_id = courses.id
                                LEFT OUTER JOIN departments ON course_associations.department_id = departments.id ')
                        .select('courses.id,
@@ -83,6 +85,9 @@ class CoursesController < ApplicationController
                                 course_associations.semester as semester,
                                 course_associations.credit_hour as credit_hour')
                        .order(id: :desc)
+                       .paginate(page: params[:page])
+
+
     end
 
 end
