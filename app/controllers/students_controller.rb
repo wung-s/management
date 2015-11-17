@@ -34,6 +34,8 @@ class StudentsController < ApplicationController
 
   def update
     @student = Student.find(params[:id])
+    #remove the set state id if the selected country is not India
+    params[:student][:state_id] = nil if params[:student][:country_id].to_i != 1
     respond_to do |format|
       if @student.update(student_params)
         flash.now[:success] = "Update successful"
