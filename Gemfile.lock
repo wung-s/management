@@ -199,7 +199,7 @@ DEPENDENCIES
   prawn-table (= 0.2.1)
   puma (= 2.11.3)
   pundit
-  rails (~> 4.2, >= 4.2.4)
+  rails (= 4.2.5)
   rails_12factor (= 0.0.2)
   roo (~> 2.0.0)
   roo-xls
