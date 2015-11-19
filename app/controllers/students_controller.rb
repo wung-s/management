@@ -50,7 +50,14 @@ class StudentsController < ApplicationController
   end
 
   def show
-    @student = Student.select("students.* , departments.name as dept_name").joins(:department).find(params[:id])
+    @student = Student.select("students.* , departments.name as dept_name, countries.name as country_name")
+                      .joins(:department, :country)
+                      .find(params[:id])
+    @state_name = get_name_of_state
+
+
+
+
   end
 
   def search
@@ -65,6 +72,14 @@ class StudentsController < ApplicationController
   private
     def student_params
       params.require(:student).permit(:first_name, :middle_name, :last_name, :address, :email, :state_id, :pincode, :emergency_no, :department_id, :country_id)
+    end
+
+    def get_name_of_state
+      name = ''
+      unless @student.state_id.nil?
+        name = State.find(@student.state_id).name
+      end
+      return name
     end
 
 end
