@@ -9,8 +9,7 @@
  * compiled file so the styles you add here take precedence over styles defined in any styles
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
- * 
- *= require dataTables/jquery.dataTables
+ *
  *= require_tree .
  *= require_self
  */
@@ -21,11 +20,11 @@
 
 
 .field_with_error .form-control {
-	display: inline; 
+	display: inline;
 	border-color: #dd4b39;
  	box-shadow: none;
 }
 
 .field_with_error label {
-	color: #dd4b39; 
-} 
+	color: #dd4b39;
+}
