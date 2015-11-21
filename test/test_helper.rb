@@ -8,3 +8,15 @@ class ActiveSupport::TestCase
 
   # Add more helper methods to be used by all tests here...
 end
+
+
+class ActionController::TestCase
+  include Devise::TestHelpers
+
+  def setup
+      @user = users(:tester)
+      sign_in @user
+  end
+
+end
+
