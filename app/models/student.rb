@@ -9,8 +9,11 @@ class Student < ActiveRecord::Base
 
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
 
-	validates :first_name, presence: true
-	validates :last_name, presence: true
+	validates :first_name, presence: true, length: {maximum: 50}
+	validates :middle_name, length: {maximum: 50}
+    validates :last_name, presence: true, length: {maximum: 50}
+    validates :email, format: {with: VALID_EMAIL_REGEX}
+=begin
 	validates :email, format: {with: VALID_EMAIL_REGEX}
 	validates :address, presence: true
 	validates :pincode, presence: true
@@ -25,6 +28,7 @@ class Student < ActiveRecord::Base
     validates :state_id, presence: true,
     					 numericality:  {only_integer: true, greater_than_or_equal_to: 0},
     					 if: :country_is_india?
+=end
 
     def country_is_india?
     	return true if country_id == 1
