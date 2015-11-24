@@ -8,6 +8,7 @@ class CoursesController < ApplicationController
 
   def new
     @course = Course.new
+    @course.course_associations.build
     respond_to do |format|
       format.js
     end
