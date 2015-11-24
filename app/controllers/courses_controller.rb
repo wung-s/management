@@ -8,6 +8,9 @@ class CoursesController < ApplicationController
 
   def new
     @course = Course.new
+    respond_to do |format|
+      format.js
+    end
   end
 
   def create
@@ -22,8 +25,12 @@ class CoursesController < ApplicationController
   end
 
   def edit
-      @course = Course.includes(:departments, :course_associations).find(params[:id])
-
+    @course = Course.includes(:departments, :course_associations).find(params[:id])
+    @department_options = Department.unassociated(params[:id])
+    respond_to do |format|
+      format.html 
+      format.js
+    end 
   end
 
   def update
@@ -89,5 +96,4 @@ class CoursesController < ApplicationController
 
 
     end
-
 end
