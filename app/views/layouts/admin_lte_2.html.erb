@@ -40,11 +40,10 @@
       <!-- Main content -->
       <section class="content">
         <% flash.each do |message_type, message|  %>
-            <% #debugger  %>
             <div class="alert alert-<%= alert_type(message_type) %> alert-dismissable">
               <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
               <h4>
-                <i class="icon fa fa-check"></i>
+                <i class = "icon fa fa-<%=  alert_type(message_type) %> " ></i>
                 <%= message  %>
               </h4>
             </div>

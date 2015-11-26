@@ -12,20 +12,17 @@ class Mark < ActiveRecord::Base
 		begin
   			# excel_file = file.original_filename =~ /.*\.xlsx$/i ? Roo::Excelx.new(file.path) : Roo::Excel.new(file.path)
   			course_association = CourseAssociation.where(course_id: course_id, department_id: department_id).take 
-
+                        return 'no association' if course_association.nil?
   			# debugger
   			excel_file = Roo::Excelx.new(file.path) 
 			
 			header = excel_file.row(1).slice(0,3)
-
-			header.map! do |word|
-				word.strip.downcase
+                        header.map! do |word|
+		          word.strip.downcase
 			end
-
-			
-			faulty_rows = Array.new
-
-			(2..excel_file.last_row).each do |key, val|
+                       
+                        faulty_rows = Array.new
+                        (2..excel_file.last_row).each do |key, val|
 			
 				row = Hash[[header, excel_file.row(key).slice(0,3)].transpose]
 			

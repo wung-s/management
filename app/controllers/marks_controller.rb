@@ -38,11 +38,13 @@ class MarksController < ApplicationController
          
       		import_state = Mark.import(params[:file], params[:course][:id], params[:department][:id])
       		if  import_state == false then
-      			flash.now[:error] = "File is not in the proper format"
+      			flash[:error] = "File is not in the proper format"
+		elsif import_state == 'no association'
+			flash[:error] = "The selected department does not offer the selected course"
       		elsif import_state.empty?
-      			flash.now[:success] = "All records have been inserted/updated successfully"
+      			flash[:success] = "All records have been inserted/updated successfully"
       		else
-      			flash.now[:warning] = "There was an error in the following rows: " + import_state.join(", ")
+      			flash[:warning] = "There was an error in the following rows: " + import_state.join(", ")
       		end
       		
       else
@@ -54,7 +56,8 @@ class MarksController < ApplicationController
     # alert = 'warning testted'    
   	# debugger
   	#redirect_to 'marks/index'
-  	render 'index'
+  	# render action: :index
+	redirect_to action: :index
   end
 
   def generate_marksheet
