@@ -1,23 +1,23 @@
 class Course < ActiveRecord::Base
-	has_many :course_associations, inverse_of: :course
-	has_many :departments, through: :course_associations
-	has_many :marks
+  has_many :course_associations, inverse_of: :course
+  has_many :departments, through: :course_associations
+  has_many :marks
 
-	#set the no of entries to be retrieved using will_paginate
-	self.per_page = 10
+  #set the no of entries to be retrieved using will_paginate
+  self.per_page = 10
 
-	validates :code, presence: true
-	validates :name, presence: true
-	validates_associated :course_associations
+  validates :code, presence: true
+  validates :name, presence: true
+  validates_associated :course_associations
 
-	accepts_nested_attributes_for :course_associations, reject_if: :reject_course_associations
+  accepts_nested_attributes_for :course_associations, reject_if: :reject_course_associations
 
 
- 	private
+  private
 
- 	def reject_course_associations(attributed)
-		attributed['semester'].blank? or attributed['credit_hour'].blank?
- 	end
+  def reject_course_associations(attributed)
+    attributed['semester'].blank? or attributed['credit_hour'].blank?
+  end
 
 
 end

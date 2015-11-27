@@ -9,7 +9,7 @@ class Department < ActiveRecord::Base
     res.each do |element|
       associated_departments << element.values.first 
     end 
-  
+
     where.not(:id => associated_departments) 
   end
 end

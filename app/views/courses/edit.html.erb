@@ -1,14 +1,14 @@
 <%= render partial: 'shared/page_info', locals: {page_title: "Course", page_header: "Edit Course", page_header_description: @course_name} %>
 
 <div class="box box-success">
-    <div class="box-header with-border">
-      <h3 class="box-title">Course Association</h3>
-      <%= link_to "Assign Course", edit_course_path, remote: true, class: "btn btn-success pull-right" %>
-    </div><!-- /.box-header -->
+  <div class="box-header with-border">
+    <h3 class="box-title">Course Association</h3>
+    <%= link_to "Assign Course", edit_course_path, remote: true, class: "btn btn-success pull-right" %>
+  </div><!-- /.box-header -->
 
-    <div id = 'course_edit_form_wrapper' >
-      <%= render 'course_edit_form'  %>
-    </div>
+  <div id = 'course_edit_form_wrapper' >
+    <%= render 'course_edit_form'  %>
+  </div>
 </div><!-- /.box -->
 <div id = "new_course_association_modal_wrapper" > 
 </div>

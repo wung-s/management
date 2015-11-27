@@ -1,3 +1,3 @@
 class Country < ActiveRecord::Base
-	has_many :students
+  has_many :students
 end

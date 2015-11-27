@@ -1,44 +1,44 @@
 <div class="box box-success">
-    <div class="box-header with-border">
-    	<i class="fa fa-bullhorn"></i>
-      	<h3 class="box-title">IMPORTANT</h3>
-    </div><!-- /.box-header -->
-    <div class="box-body">
- 		<div class="callout callout-warning">
-        <h4>Please ensure that you follow the format specified below:</h4>
-        <ul>
-        	<li><p>There can be only 3 columns: Regno, Internal and External. Any column beyond the first 3 will be ignored</p></li>
-        	<li><p>Only ".xlsx" format is supported</p></li>
-        	<li><p>You must select the course and department before uploading the file</p></li>
-        	<li><p>A student must be already registered</p></li>
+  <div class="box-header with-border">
+    <i class="fa fa-bullhorn"></i>
+    <h3 class="box-title">IMPORTANT</h3>
+  </div><!-- /.box-header -->
+  <div class="box-body">
+    <div class="callout callout-warning">
+      <h4>Please ensure that you follow the format specified below:</h4>
+      <ul>
+        <li><p>There can be only 3 columns: Regno, Internal and External. Any column beyond the first 3 will be ignored</p></li>
+        <li><p>Only ".xlsx" format is supported</p></li>
+        <li><p>You must select the course and department before uploading the file</p></li>
+        <li><p>A student must be already registered</p></li>
 
-        </ul>
-      	</div>
-      <!-- Form to upload file -->
-		<%= form_tag(import_mark_path,{ multipart: true, class: "form-horizontal"} ) do  %>
-		<div class = "form-group" >
-			<label for="course_id" class="col-sm-2 control-label">Course</label>
-			<div class="col-sm-10">
-				<%= collection_select(:course, :id, Course.all, :id, :name, options = {prompt: "Select Course"}, {class: "form-control col-sm-4"})  %> 
-			</div>
-		</div>
+      </ul>
+    </div>
+    <!-- Form to upload file -->
+    <%= form_tag(import_mark_path,{ multipart: true, class: "form-horizontal"} ) do  %>
+      <div class = "form-group" >
+      <label for="course_id" class="col-sm-2 control-label">Course</label>
+      <div class="col-sm-10">
+        <%= collection_select(:course, :id, Course.all, :id, :name, options = {prompt: "Select Course"}, {class: "form-control col-sm-4"})  %> 
+      </div>
+    </div>
 
-		<div class = "form-group" >
-			<label for="course_id" class="col-sm-2 control-label">Department</label>
-			<div class="col-sm-10">
-				<%= collection_select(:department, :id, Department.all, :id, :name, options = {prompt: "Select Department"}, {class: "form-control col-sm-4"})  %> 
-			</div>
-		</div>
+    <div class = "form-group" >
+      <label for="course_id" class="col-sm-2 control-label">Department</label>
+      <div class="col-sm-10">
+        <%= collection_select(:department, :id, Department.all, :id, :name, options = {prompt: "Select Department"}, {class: "form-control col-sm-4"})  %> 
+      </div>
+    </div>
 
-		<div class="form-group">
-			<label for="regno" class="col-sm-2 control-label">Excel File</label>
-			<div class="col-sm-10">
-				<%=	file_field_tag :file, accept: 'text/xlsx'  %>
-			</div>
-		</div>
-		<%= submit_tag "Upload File", class: "btn btn-success pull-right" %>
+    <div class="form-group">
+      <label for="regno" class="col-sm-2 control-label">Excel File</label>
+      <div class="col-sm-10">
+        <%=	file_field_tag :file, accept: 'text/xlsx'  %>
+      </div>
+    </div>
+    <%= submit_tag "Upload File", class: "btn btn-success pull-right" %>
 
-		<% end  %>
+  <% end  %>
 
-    </div><!-- /.box-body -->
+  </div><!-- /.box-body -->
 </div><!-- /.box -->

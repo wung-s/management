@@ -1,19 +1,19 @@
 <% unless @courses.nil?  %>
-	<table class="table table-hover">
-	    <tr>
- 		  <th>Code</th>
-	      <th>Course Name</th>
-	      <th>Department</th>
-	      <th style="width: 40px">Action</th>
-	    </tr>
- 		<% @courses.each do |course|  %>
-	 		<tr>
- 				<td><%= course.code %></td>
-				<td><%= course.name %></td>
-				<td><%= course.dept_name  %> </td>
-		  		<td> <%= link_to("Edit", edit_course_path(course), {class: "btn btn-success"}) %>
-	 		</tr>
-	 	<%  end  %>
- 	</table>
- 	<%=  will_paginate @courses, renderer: BootstrapPagination::Rails %>
+  <table class="table table-hover">
+  <tr>
+    <th>Code</th>
+    <th>Course Name</th>
+    <th>Department</th>
+    <th style="width: 40px">Action</th>
+  </tr>
+  <% @courses.each do |course|  %>
+    <tr>
+    <td><%= course.code %></td>
+    <td><%= course.name %></td>
+    <td><%= course.dept_name  %> </td>
+    <td> <%= link_to("Edit", edit_course_path(course), {class: "btn btn-success"}) %>
+  </tr>
+  <%  end  %>
+  </table>
+  <%=  will_paginate @courses, renderer: BootstrapPagination::Rails %>
 <% end  %>
