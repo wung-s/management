@@ -14,3 +14,6 @@
 
 #Ignore all  test files
 /test/*
+
+#Ignore the seed data
+/db/seeds.rb
